@@ -24,6 +24,10 @@ namespace CQRSMediatr.Controllers
             _publisher = publisher;
         }
 
+        /// <summary>
+        /// Get All Products
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult> GetProducts()
         {
@@ -31,6 +35,11 @@ namespace CQRSMediatr.Controllers
             return Ok(products);
         }
 
+        /// <summary>
+        /// Get Product By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id:int}", Name = "GetProductById")]
         public async Task<ActionResult> GetProductById(int id)
         {
@@ -39,8 +48,13 @@ namespace CQRSMediatr.Controllers
             return Ok(product);
         }
 
+        /// <summary>
+        /// Add or Edit Product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> AddProduct(ProductModel product)
+        public async Task<ActionResult> SaveProduct(ProductModel product)
         {
             var returnedProduct = await _sender.Send(new SaveProductCommand(product));
 

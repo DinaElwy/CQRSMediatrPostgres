@@ -19,6 +19,7 @@ namespace CQRSMediatr.DataStore
                 {
                     product.Brand = productModel.Brand;
                     product.Price = productModel.Price;
+                    product.Name = productModel.Name;
                     product.Size = productModel.Size;
                 }
                 else
